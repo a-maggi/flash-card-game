@@ -64,3 +64,5 @@ We will be evaluating your solution based on the following criteria
 -   Timer: Used useState for tracking time and useEffect for starting and stopping the timer based on game state.
 -   Sounds: Utilized the HTML5 audio API to play sound playback.
 -   Animations: Used CSS transitions and transform to animate the card on 3D.
+
+Link to demo the game: https://emoji-match-sigma.vercel.app/
