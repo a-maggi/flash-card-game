@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import "./styles.css";
 
 export interface DialogProps {
@@ -12,7 +13,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
     const { title, isOpen, onClose, children } = props;
     return (
         <>
-            <div className={`dialog-overlay ${isOpen ? "is-open" : ""}`} />
+            <div className={clsx("dialog-overlay", { "is-open": isOpen })}></div>
             {isOpen && (
                 <div className="dialog" role="dialog" aria-modal="true">
                     <button type="button" className="dismiss" onClick={onClose}>

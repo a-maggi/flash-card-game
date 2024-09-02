@@ -21,10 +21,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   display: none;
+  animation: close 1s forwards;
 }
 
 .dialog-overlay.is-open {
   display: block;
+  animation: open 1s forwards;  
 }
 
 .dismiss {
@@ -79,4 +81,22 @@
   color: #595b5f;
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes close {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
