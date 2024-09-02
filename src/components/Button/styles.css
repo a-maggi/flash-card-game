@@ -1,0 +1,22 @@
+.button {
+    font-family: monospace;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+    height: 34px;
+}
+  
+.button:not(:disabled):hover {
+    background-color: #d32f2f;
+    box-shadow: 0 0 0 5px rgba(211, 47, 47, 0.2);
+}
+  
+.button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: inherit;
+}

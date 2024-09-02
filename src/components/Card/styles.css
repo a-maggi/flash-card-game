@@ -1,0 +1,117 @@
+:root {
+  --border-radius: 10px;
+  --transition-normal: 200ms;
+  --shadow-light: 0 5px 20px 5px #00000044;
+  --shadow-normal: 0 0px 2px #00000099;
+}
+
+.card {
+  position: relative;
+  border-radius: var(--border-radius);
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.card:disabled {
+  cursor: default;
+}
+
+.card-inner { 
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-normal);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform var(--transition-normal) ease-out, box-shadow var(--transition-normal) ease-out;
+  transform: rotate3d(0);
+  padding-top: 133.33%; 
+}
+
+.card.active .card-inner {
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+ 
+.card:hover {
+  z-index: 2;
+}
+
+.card:not(.active):hover .card-inner {
+  box-shadow: var(--shadow-light);
+  transform: scale(1.07);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  overflow: hidden; 
+  border-radius: var(--border-radius);
+} 
+
+.card-front { 
+  width: 100%;
+  height: 100%;
+  --s: 150px;
+  --c1: hsl(0, 57%, 80%);
+  --c2: hsl(0, 57%, 52%);
+  --_g: var(--c1) 0% 5%, var(--c2) 6% 15%, var(--c1) 16% 25%, var(--c2) 26% 35%,
+    var(--c1) 36% 45%, var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%,
+    var(--c1) 76% 85%, var(--c2) 86% 95%, #0000 96%;
+  background: radial-gradient(50% 50% at 100% 0, var(--_g)),
+    radial-gradient(50% 50% at 0 100%, var(--_g)),
+    radial-gradient(50% 50%, var(--_g)),
+    radial-gradient(50% 50%, var(--_g)) calc(var(--s) / 2) calc(var(--s) / 2)
+      var(--c1);
+  background-size: var(--s) var(--s);
+}
+
+.card-back {
+  padding: 10px;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+}
+
+.card-content {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  border: 1px solid #ebebeb; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content svg {
+  max-width: 100%;
+}
+
+.spotlight {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-image: radial-gradient(circle at 50% -20%, #ffffff22, #0000000f);
+} 
+ 
+@media (prefers-reduced-motion: reduce) {
+  .card, .card-inner {
+    transition: none!important;
+  }
+  .card {
+    transform: none!important;
+  }
+  .spotlight {
+    display: none;
+  }
+}
